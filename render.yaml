@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: alphapulse-trading-bot
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: USE_OFFLINE_DATA_FALLBACK
+        value: "True"
+      - key: DEFAULT_INITIAL_CAPITAL
+        value: "100000.0"
+      - key: DEFAULT_RISK_PER_TRADE
+        value: "0.02"
