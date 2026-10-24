@@ -1,12 +1,17 @@
 # AlphaPulse
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://alphapulse-trading-bot.streamlit.app/)
+[![CI](https://github.com/gargigargote/TradingBot/actions/workflows/tests.yml/badge.svg)](https://github.com/gargigargote/TradingBot/actions/workflows/tests.yml)
+
+🌐 **Live Terminal:** [https://alphapulse-trading-bot.streamlit.app/](https://alphapulse-trading-bot.streamlit.app/)
+
 A modular, event-driven algorithmic trading, backtesting, and paper-trading system written in Python.
 
 AlphaPulse implements a dual-layer strategy:
 1. **Regime Filter:** Uses 50/200 EMA crossover and normalized ATR to detect trend vs. mean-reverting / high-volatility chop regimes.
 2. **Mean-Reversion Execution:** Exploits Bollinger Band excursions using 20-day rolling Z-scores ($Z \le -2.0$) with dynamic ATR trailing stops.
 
-Includes dynamic position sizing (fixed fractional + half-Kelly), a 3% intraday circuit breaker, fee & slippage modeling (5 bps default), trade audit logging to SQLite, and a Streamlit analytics dashboard.
+Includes dynamic position sizing (fixed fractional + half-Kelly), a 3% intraday circuit breaker, fee & slippage modeling (5 bps default), trade audit logging to SQLite, and an interactive Streamlit analytics dashboard.
 
 ---
 
@@ -99,11 +104,14 @@ python -m src.backtester --symbol AAPL --offline
 
 ### 4. Launch the Dashboard
 
+You can access the live deployed dashboard directly at:
+👉 **[https://alphapulse-trading-bot.streamlit.app/](https://alphapulse-trading-bot.streamlit.app/)**
+
+Or run it locally:
 ```bash
 streamlit run dashboard/app.py
 ```
-
-The app will be available at `http://localhost:8501`. Features include:
+Access locally at `http://localhost:8501`. Features include:
 - Interactive Plotly equity curves and underwater drawdowns.
 - Price charts with Bollinger Bands, 50/200 EMAs, and buy/sell execution markers.
 - Completed trade history with 1-click CSV download.
