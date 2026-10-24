@@ -50,6 +50,7 @@ htmlcov/
 
 # Streamlit
 .streamlit/
+!.streamlit/config.toml
 
 # AlphaPulse runtime data & logs
 data/*.csv
